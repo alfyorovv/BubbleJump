@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - SpawnTrigger
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

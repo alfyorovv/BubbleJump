@@ -5,9 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     bool isWalled = true;
-    public Rigidbody2D rb;
+    Rigidbody2D rb;
     float direction = 1;
-    float speed = 200;
+    float speed = 12;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -18,8 +18,7 @@ public class Player : MonoBehaviour
         Vector2 force = new Vector2(speed*direction, 0);
         if (Input.GetMouseButtonDown(0) && isWalled == true)
         {
-            Debug.Log("Clicked");
-            rb.AddForce(force, ForceMode2D.Force);
+            rb.AddForce(force, ForceMode2D.Impulse);
             direction *= -1;
         }
     }
