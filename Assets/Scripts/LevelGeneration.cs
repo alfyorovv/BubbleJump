@@ -15,9 +15,15 @@ public class LevelGeneration : MonoBehaviour
         spawnPosition = spawnPoint.transform.position;
     }
 
+    private void Update()
+    {
+        if (transform.position.y < -10)
+            Destroy(gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Invisible");
         Instantiate(walls, spawnPosition, Quaternion.identity);
     }
+
 }

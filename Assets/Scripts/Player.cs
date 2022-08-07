@@ -21,19 +21,25 @@ public class Player : MonoBehaviour
             rb.AddForce(force, ForceMode2D.Impulse);
             direction *= -1;
         }
+        
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Wall") 
-            isWalled = true;
-
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
+    void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Wall")
-            isWalled = false;
+        {
+            isWalled = true;
+        }
     }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            isWalled = false;
+        }
+    }
+
+
 }
 
      
