@@ -5,12 +5,17 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     bool isWalled = true;
-    Rigidbody2D rb;
+
     float direction = 1;
     float speed = 12;
+    public int hp;
+    public int coins = 0;
+
+    Rigidbody2D rb;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        hp = 3;
     }
 
     void Update()
@@ -20,6 +25,11 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(force, ForceMode2D.Impulse);
             direction *= -1;
+        }
+
+        if(hp<=0)
+        {
+            Destroy(gameObject);
         }
         
     }
@@ -39,7 +49,21 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Obstacle")
+        {
+            hp -= 1;
+        }
 
+        if (collider.gameObject.tag == "Coin")
+        {
+            Destroy(collider.gameObject);
+            coins++;
+            //PlayerPrefs.SetInt("coins", coins+1);
+        }
+        
+    }
 }
 
      
