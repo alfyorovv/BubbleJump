@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
 
         coins = PlayerPrefs.GetInt("coins"); //Change and save coins
     }
+
     void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Wall")
@@ -74,6 +75,7 @@ public class Player : MonoBehaviour
         
     }
 
+    //Functions to check if mouse on pause button
     public void CanJump()
     {
         canJump = true;
