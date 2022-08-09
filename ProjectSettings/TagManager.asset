@@ -8,6 +8,8 @@ TagManager:
   - SpawnTrigger
   - SpawnPoint
   - ObstacleSpawnPoint
+  - Obstacle
+  - Coin
   layers:
   - Default
   - TransparentFX

@@ -12,26 +12,35 @@ public class Player : MonoBehaviour
     public int coins = 0;
 
     Rigidbody2D rb;
+    GameOverPanel gameOverPanel; 
+
     void Start()
     {
+        gameOverPanel = FindObjectOfType<GameOverPanel>(); 
         rb = GetComponent<Rigidbody2D>();
         hp = 3;
     }
 
     void Update()
     {
-        Vector2 force = new Vector2(speed*direction, 0);
+
+        Vector2 force = new Vector2(speed*direction, 0); //Player force and direction
+
+        //Player movement
         if (Input.GetMouseButtonDown(0) && isWalled == true)
         {
             rb.AddForce(force, ForceMode2D.Impulse);
             direction *= -1;
         }
 
+        //Game over
         if(hp<=0)
         {
             Destroy(gameObject);
+            gameOverPanel.GameOver();
         }
-        
+
+        coins = PlayerPrefs.GetInt("coins"); //Change and save coins
     }
     void OnCollisionStay2D(Collision2D collision)
     {
@@ -59,8 +68,7 @@ public class Player : MonoBehaviour
         if (collider.gameObject.tag == "Coin")
         {
             Destroy(collider.gameObject);
-            coins++;
-            //PlayerPrefs.SetInt("coins", coins+1);
+            PlayerPrefs.SetInt("coins", coins+1);
         }
         
     }
