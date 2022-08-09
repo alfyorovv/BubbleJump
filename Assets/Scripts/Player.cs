@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     bool isWalled = true;
+    bool canJump = true;
 
     float direction = 1;
     float speed = 12;
@@ -27,7 +28,7 @@ public class Player : MonoBehaviour
         Vector2 force = new Vector2(speed*direction, 0); //Player force and direction
 
         //Player movement
-        if (Input.GetMouseButtonDown(0) && isWalled == true)
+        if (Input.GetMouseButtonDown(0) && isWalled && canJump)
         {
             rb.AddForce(force, ForceMode2D.Impulse);
             direction *= -1;
@@ -71,6 +72,16 @@ public class Player : MonoBehaviour
             PlayerPrefs.SetInt("coins", coins+1);
         }
         
+    }
+
+    public void CanJump()
+    {
+        canJump = true;
+    }
+
+    public void CantJump()
+    {
+        canJump = false;
     }
 }
 
