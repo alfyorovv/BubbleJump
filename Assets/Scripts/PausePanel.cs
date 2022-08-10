@@ -6,11 +6,15 @@ public class PausePanel : MonoBehaviour
 {
     GameObject pausePanel;
     GameObject pauseButton;
+
+    Player player;
     void Start()
     {
         pausePanel = GameObject.Find("PausePanel");
         pauseButton = GameObject.Find("PauseButton");
         pausePanel.SetActive(false);
+
+        player = FindObjectOfType<Player>();
     }
 
     public void Pause()
@@ -25,6 +29,7 @@ public class PausePanel : MonoBehaviour
         pausePanel.SetActive(false);
         pauseButton.SetActive(true);
         Time.timeScale = 1;
+        player.CanJump();
     }
 
 }

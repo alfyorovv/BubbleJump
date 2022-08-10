@@ -7,12 +7,6 @@ public class MaxScore : MonoBehaviour
 {
     public Text maxScoreText;
 
-    void Start()
-    {
-        
-    }
-
-
     void Update()
     {
         maxScoreText.text = "Best score: " + PlayerPrefs.GetInt("maxScore").ToString();
