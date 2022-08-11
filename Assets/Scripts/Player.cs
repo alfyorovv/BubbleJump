@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     bool isWalled = true;
+    public bool isLeftWall = true;
     bool canJump = true;
 
     float direction = 1;
@@ -13,11 +14,14 @@ public class Player : MonoBehaviour
     public int coins = 0;
 
     Rigidbody2D rb;
-    GameOverPanel gameOverPanel; 
-
+    GameOverPanel gameOverPanel;
+    public Animator playerAnimator;
+    AnimationsController animController;
     void Start()
     {
-        gameOverPanel = FindObjectOfType<GameOverPanel>(); 
+        animController = FindObjectOfType<AnimationsController>();
+        playerAnimator = gameObject.GetComponent<Animator>();
+        gameOverPanel = FindObjectOfType<GameOverPanel>();
         rb = GetComponent<Rigidbody2D>();
         hp = 3;
     }
@@ -30,6 +34,8 @@ public class Player : MonoBehaviour
         //Player movement
         if (Input.GetMouseButtonDown(0) && isWalled && canJump)
         {
+            animController.setJumpTrigger();
+            isLeftWall = !isLeftWall;
             rb.AddForce(force, ForceMode2D.Impulse);
             direction *= -1;
         }
