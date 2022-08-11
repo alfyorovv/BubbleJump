@@ -5,7 +5,7 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     public int score;
-    public int maxScore;
+
     void Start()
     {
         score = 0;
@@ -18,10 +18,9 @@ public class Score : MonoBehaviour
             score++;
         }
 
-        if(score/10 > maxScore)
+        if(score/10 > PlayerPrefs.GetInt("maxScore"))
         {
-            maxScore = score / 10;
-            PlayerPrefs.SetInt("maxScore", maxScore);
+            PlayerPrefs.SetInt("maxScore", score / 10);
         }
     }
 }

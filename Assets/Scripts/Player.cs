@@ -5,18 +5,18 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     bool isWalled = true;
-    public bool isLeftWall = true;
     bool canJump = true;
+    public bool isLeftWall = true;
 
     float direction = 1;
     float speed = 12;
     public int hp;
-    public int coins = 0;
 
     Rigidbody2D rb;
     GameOverPanel gameOverPanel;
     public Animator playerAnimator;
     AnimationsController animController;
+
     void Start()
     {
         animController = FindObjectOfType<AnimationsController>();
@@ -47,7 +47,6 @@ public class Player : MonoBehaviour
             gameOverPanel.GameOver();
         }
 
-        coins = PlayerPrefs.GetInt("coins"); //Change and save coins
     }
 
     void OnCollisionStay2D(Collision2D collision)
@@ -76,7 +75,7 @@ public class Player : MonoBehaviour
         if (collider.gameObject.tag == "Coin")
         {
             Destroy(collider.gameObject);
-            PlayerPrefs.SetInt("coins", coins+1);
+            PlayerPrefs.SetInt("coins", PlayerPrefs.GetInt("coins" )+ 1);
         }
         
     }
