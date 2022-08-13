@@ -15,8 +15,8 @@ public class TextManager : MonoBehaviour
 
     void Update()
     {
-        hpText.text = "HP: " + player.hp;
-        coinsText.text = "Coins: " + PlayerPrefs.GetInt("coins");
+        hpText.text = "x" + player.hp;
+        coinsText.text = "x" + PlayerPrefs.GetInt("coins");
         scoreText.text = (score.score/10).ToString();
 }
 }
