@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     GameOverPanel gameOverPanel;
     public Animator playerAnimator;
     AnimationsController animController;
+    public Text hpText;
 
     void Start()
     {
@@ -43,10 +45,10 @@ public class Player : MonoBehaviour
         //Game over
         if(hp<=0)
         {
-            Destroy(gameObject);
             gameOverPanel.GameOver();
         }
 
+        hpText.text = "x" + hp;
     }
 
     void OnCollisionStay2D(Collision2D collision)
@@ -75,7 +77,7 @@ public class Player : MonoBehaviour
         if (collider.gameObject.tag == "Coin")
         {
             Destroy(collider.gameObject);
-            PlayerPrefs.SetInt("coins", PlayerPrefs.GetInt("coins" )+ 1);
+            PlayerPrefs.SetInt("coins", PlayerPrefs.GetInt("coins") + 1);
         }
         
     }
