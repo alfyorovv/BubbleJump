@@ -13,7 +13,7 @@ public class Score : MonoBehaviour
         score = 0;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Time.timeScale != 0)
         {

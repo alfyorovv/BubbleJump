@@ -14,18 +14,30 @@ public class Player : MonoBehaviour
     public int hp;
 
     Rigidbody2D rb;
+    public GameObject child1, child2;
+    SpriteRenderer sprite1, sprite2;
     GameOverPanel gameOverPanel;
     public Animator playerAnimator;
     AnimationsController animController;
     public Text hpText;
 
-    void Start()
+    public Sprite[] skins;
+
+    void Awake()
     {
         animController = FindObjectOfType<AnimationsController>();
         playerAnimator = gameObject.GetComponent<Animator>();
         gameOverPanel = FindObjectOfType<GameOverPanel>();
         rb = GetComponent<Rigidbody2D>();
+        sprite1 = child1.GetComponent<SpriteRenderer>();
+        sprite2= child2.GetComponent<SpriteRenderer>();
         hp = 3;
+    }
+
+    void Start()
+    {
+        sprite1.sprite = skins[PlayerPrefs.GetInt("currentSkin")];
+        sprite2.sprite = skins[PlayerPrefs.GetInt("currentSkin") + 1];
     }
 
     void Update()
