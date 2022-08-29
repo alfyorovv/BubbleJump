@@ -11,6 +11,7 @@ public class SkinsShop : MonoBehaviour
     public GameObject prevSkinButton;
     public GameObject nextSkinButton;
     public GameObject equipButton;
+    public GameObject tapToChangeSkinText;
 
     int currentSkin;
     SpriteRenderer sr;
@@ -19,13 +20,16 @@ public class SkinsShop : MonoBehaviour
 
     private void Awake()
     {
+        //PlayerPrefs.DeleteAll();
         currentSkin = PlayerPrefs.GetInt("currentSkin");
         sr = GameObject.Find("MainMenuPlayer").GetComponent<SpriteRenderer>();
+        PlayerPrefs.SetInt("isBought0", 1); //First skin is always bought
     }
 
     private void Start()
     {
         SkinPreview();
+        tapToChangeSkinText.SetActive(true);
     }
 
     //Refactoring required
@@ -37,6 +41,7 @@ public class SkinsShop : MonoBehaviour
         prevSkinButton.SetActive(true);
         nextSkinButton.SetActive(true);
         equipButton.SetActive(false);
+        tapToChangeSkinText.SetActive(false);
 
         HideArrows();
         HideBuyButton();
@@ -49,6 +54,10 @@ public class SkinsShop : MonoBehaviour
         backButton.SetActive(false);
         prevSkinButton.SetActive(false);
         nextSkinButton.SetActive(false);
+        equipButton.SetActive(false);
+        tapToChangeSkinText.SetActive(true);
+        currentSkin = PlayerPrefs.GetInt("currentSkin");
+        SkinPreview();
     }
 
     public void EquipButtonClicked()
@@ -60,7 +69,7 @@ public class SkinsShop : MonoBehaviour
 
     public void NextSkinButtonClicked()
     {
-        currentSkin+=2; //We have 2 sprites on player, +2 to iterate every pair
+        currentSkin+=2; //Player has 2 sprites, +2 to iterate every pair
         HideArrows();
         SkinPreview();
         HideBuyButton();
@@ -68,7 +77,7 @@ public class SkinsShop : MonoBehaviour
 
     public void PrevSkinButtonClicked()
     {
-        currentSkin-=2; //We have 2 sprites on player, -2 to iterate every pair
+        currentSkin-=2; //Player has 2 sprites, -2 to iterate every pair
         HideArrows();
         SkinPreview();
         HideBuyButton();
@@ -86,7 +95,7 @@ public class SkinsShop : MonoBehaviour
 
         }
 
-        if (currentSkin == skins.Length) //currentSkin have step 2 and reaching end when equals array lenght
+        if (currentSkin == 2*skins.Length - 2) //currentSkin have step 2 and reaching end when equals 2 array's length - 2
         {
             nextSkinButton.SetActive(false);
         }
@@ -99,7 +108,7 @@ public class SkinsShop : MonoBehaviour
 
     public void BuyButtonClicked()
     {
-        if(PlayerPrefs.GetInt("coins") > prices[currentSkin/2])
+        if(PlayerPrefs.GetInt("coins") >= prices[currentSkin/2])
         {
             PlayerPrefs.SetInt("coins", PlayerPrefs.GetInt("coins") - prices[currentSkin / 2]); //Subtract price from coins
             buyButton.SetActive(false);

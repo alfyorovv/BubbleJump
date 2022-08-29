@@ -1996,7 +1996,7 @@ PrefabInstance:
       objectReference: {fileID: 335675495}
     - target: {fileID: 6651305517381791482, guid: 644a7232de72e5642a32a1ad5e9d2c58, type: 3}
       propertyPath: skins.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6651305517381791482, guid: 644a7232de72e5642a32a1ad5e9d2c58, type: 3}
       propertyPath: skins.Array.data[0]
@@ -2014,6 +2014,14 @@ PrefabInstance:
       propertyPath: skins.Array.data[3]
       value: 
       objectReference: {fileID: -889739676950766307, guid: 69a77bd1ffea35044870ac80ce7efbf5, type: 3}
+    - target: {fileID: 6651305517381791482, guid: 644a7232de72e5642a32a1ad5e9d2c58, type: 3}
+      propertyPath: skins.Array.data[4]
+      value: 
+      objectReference: {fileID: 7739146461591056979, guid: 806ff9d56c4d3c04ab94f70a98e343db, type: 3}
+    - target: {fileID: 6651305517381791482, guid: 644a7232de72e5642a32a1ad5e9d2c58, type: 3}
+      propertyPath: skins.Array.data[5]
+      value: 
+      objectReference: {fileID: 1100518483029294565, guid: 806ff9d56c4d3c04ab94f70a98e343db, type: 3}
     - target: {fileID: 6651305517381791483, guid: 644a7232de72e5642a32a1ad5e9d2c58, type: 3}
       propertyPath: m_Name
       value: Player
