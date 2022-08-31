@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public Animator playerAnimator;
     AnimationsController animController;
     public Text hpText;
+    AudioManager audioManager;
 
     public Sprite[] skins;
 
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sprite1 = child1.GetComponent<SpriteRenderer>();
         sprite2= child2.GetComponent<SpriteRenderer>();
+        audioManager = FindObjectOfType<AudioManager>();
         hp = 3;
     }
 
@@ -52,6 +54,8 @@ public class Player : MonoBehaviour
             isLeftWall = !isLeftWall;
             rb.AddForce(force, ForceMode2D.Impulse);
             direction *= -1;
+            audioManager.audioSource.Play();
+
         }
 
         //Game over
