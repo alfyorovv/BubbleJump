@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class PausePanel : MonoBehaviour
 {
-    GameObject pausePanel;
-    GameObject pauseButton;
+    public GameObject pausePanel;
+    public GameObject pauseButton;
 
     Player player;
     void Start()
     {
-        pausePanel = GameObject.Find("PausePanel");
-        pauseButton = GameObject.Find("PauseButton");
-        pausePanel.SetActive(false);
-
         player = FindObjectOfType<Player>();
     }
 

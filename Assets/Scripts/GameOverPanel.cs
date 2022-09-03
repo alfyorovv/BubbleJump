@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class GameOverPanel : MonoBehaviour
 {
-    GameObject gameOverPanel;
-    void Start()
-    {
-        gameOverPanel = GameObject.Find("GameOverPanel");
-        gameOverPanel.SetActive(false);
-    }
+    public GameObject gameOverPanel;
 
    public void GameOver()
     {
