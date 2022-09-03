@@ -12,6 +12,7 @@ public class SkinsShop : MonoBehaviour
     public GameObject nextSkinButton;
     public GameObject equipButton;
     public GameObject tapToChangeSkinText;
+    public GameObject priceText;
 
     int currentSkin;
     SpriteRenderer sr;
@@ -29,7 +30,7 @@ public class SkinsShop : MonoBehaviour
     private void Start()
     {
         SkinPreview();
-        tapToChangeSkinText.SetActive(true);
+        //priceText.SetActive(false);
     }
 
     //Refactoring required
@@ -42,6 +43,7 @@ public class SkinsShop : MonoBehaviour
         nextSkinButton.SetActive(true);
         equipButton.SetActive(false);
         tapToChangeSkinText.SetActive(false);
+        priceText.SetActive(true);
 
         HideArrows();
         HideBuyButton();
@@ -56,6 +58,7 @@ public class SkinsShop : MonoBehaviour
         nextSkinButton.SetActive(false);
         equipButton.SetActive(false);
         tapToChangeSkinText.SetActive(true);
+        priceText.SetActive(false);
         currentSkin = PlayerPrefs.GetInt("currentSkin");
         SkinPreview();
     }
@@ -120,6 +123,7 @@ public class SkinsShop : MonoBehaviour
     void SkinPreview()
     {
         sr.sprite = skins[currentSkin/2];
+        priceText.GetComponent<Text>().text = "x" + prices[currentSkin / 2];
     }
 
     bool IsBought()

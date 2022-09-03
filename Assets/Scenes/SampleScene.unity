@@ -867,8 +867,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
-  sprite1: {fileID: 21300000, guid: adc9c90922e321b45b0db2ea10664ad1, type: 3}
-  sprite2: {fileID: 21300000, guid: a00298f442a75eb46ae602ad7dfcf069, type: 3}
+  sprite1: {fileID: 37220150661109677, guid: d6afca0d47219c048973b5a25cb8bbd9, type: 3}
+  sprite2: {fileID: -3544106047783552202, guid: d6afca0d47219c048973b5a25cb8bbd9, type: 3}
   soundButton: {fileID: 1569780887}
 --- !u!82 &793195205
 AudioSource:
@@ -1574,7 +1574,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: adc9c90922e321b45b0db2ea10664ad1, type: 3}
+  m_Sprite: {fileID: 37220150661109677, guid: d6afca0d47219c048973b5a25cb8bbd9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
