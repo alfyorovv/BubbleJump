@@ -420,7 +420,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1246
+  m_Text: 999
 --- !u!222 &527407895
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1943,8 +1943,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ade0a45da7714742be14cbc7e5e173f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroid: {fileID: 6840139867210176917, guid: 38cae1bcfd773cf458fe0bd90af1cb3b, type: 3}
-  coin: {fileID: 7788600435946967680, guid: 24fde99b77b58e04589c6c6bf2d84e09, type: 3}
+  objects:
+  - {fileID: 7788600435946967680, guid: 24fde99b77b58e04589c6c6bf2d84e09, type: 3}
+  - {fileID: 6840139867210176917, guid: 38cae1bcfd773cf458fe0bd90af1cb3b, type: 3}
 --- !u!4 &1972827202
 Transform:
   m_ObjectHideFlags: 0
@@ -1953,7 +1954,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972827200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.024, y: 16.02, z: -0.010970794}
+  m_LocalPosition: {x: 0.024, y: 5.77, z: -0.010970794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

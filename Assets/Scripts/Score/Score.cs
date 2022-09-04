@@ -11,19 +11,24 @@ public class Score : MonoBehaviour
     void Start()
     {
         score = 0;
+        StartCoroutine(AddScore());
     }
 
-    void FixedUpdate()
+    private void Update()
     {
-        if (Time.timeScale != 0)
+        if (score > PlayerPrefs.GetInt("maxScore"))
+        {
+            PlayerPrefs.SetInt("maxScore", score);
+        }
+        scoreText.text = score.ToString();
+    }
+
+    IEnumerator AddScore()
+    {
+        while(Time.timeScale > 0)
         {
             score++;
+            yield return new WaitForSeconds(0.1f);
         }
-
-        if(score/10 > PlayerPrefs.GetInt("maxScore"))
-        {
-            PlayerPrefs.SetInt("maxScore", score / 10);
-        }
-        scoreText.text = (score / 10).ToString();
     }
 }
