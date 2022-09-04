@@ -89,11 +89,15 @@ public class Player : MonoBehaviour
         {
             hp -= 1;
         }
-
-        if (collider.gameObject.tag == "Coin")
+        else if (collider.gameObject.tag == "Coin")
         {
             Destroy(collider.gameObject);
             PlayerPrefs.SetInt("coins", PlayerPrefs.GetInt("coins") + 1);
+        }
+        else if(collider.gameObject.tag == "Heal")
+        {
+            Destroy(collider.gameObject);
+            hp += 1;
         }
         
     }
