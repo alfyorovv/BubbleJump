@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Scenes : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
         Time.timeScale = 1;
     }

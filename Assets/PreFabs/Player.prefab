@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2907372399236909846}
   - component: {fileID: 7995025076027193329}
   m_Layer: 0
-  m_Name: Player1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,8 +50,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLeftWall: 1
   hp: 0
+  child1: {fileID: 0}
+  child2: {fileID: 0}
   playerAnimator: {fileID: 0}
   hpText: {fileID: 0}
+  skins: []
 --- !u!50 &6651305517381791486
 Rigidbody2D:
   serializedVersion: 4
@@ -86,7 +89,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014324307, y: 0.983697}
+  m_Offset: {x: 0.014324307, y: 0.98006105}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -97,7 +100,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.8897178, y: 1.944748}
+  m_Size: {x: 3.8897178, y: 1.9520199}
   m_EdgeRadius: 0
 --- !u!95 &7995025076027193329
 Animator:

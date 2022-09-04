@@ -10,6 +10,7 @@ TagManager:
   - ObstacleSpawnPoint
   - Obstacle
   - Coin
+  - Heal
   layers:
   - Default
   - TransparentFX
