@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     AnimationsController animController;
     public Text hpText;
     AudioManager audioManager;
+    public GameObject coinParticles, heartParticles;
 
     public Sprite[] skins;
 
@@ -94,12 +95,14 @@ public class Player : MonoBehaviour
 
         else if (collider.gameObject.tag == "Coin")
         {
+            Instantiate(coinParticles, gameObject.transform.position, Quaternion.identity);
             Destroy(collider.gameObject);
             PlayerPrefs.SetInt("coins", PlayerPrefs.GetInt("coins") + 1);
         }
 
         else if(collider.gameObject.tag == "Heal")
         {
+            Instantiate(heartParticles, gameObject.transform.position, Quaternion.identity);
             Destroy(collider.gameObject);
             hp += 1;
         }
