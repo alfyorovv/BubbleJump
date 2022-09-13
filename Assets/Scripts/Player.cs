@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     bool isWalled = true;
     bool canJump = true;
     public bool isLeftWall = true;
+    bool canGetDamage = true;
 
     float direction = 1;
     float speed = 12;
@@ -15,7 +16,7 @@ public class Player : MonoBehaviour
 
     Rigidbody2D rb;
     public GameObject child1, child2;
-    SpriteRenderer sprite1, sprite2;
+    public SpriteRenderer sprite1, sprite2;
     GameOverPanel gameOverPanel;
     public Animator playerAnimator;
     AnimationsController animController;
@@ -85,15 +86,18 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Obstacle")
+        if (collider.gameObject.tag == "Obstacle" && canGetDamage)
         {
             hp -= 1;
+            StartCoroutine("Flashing");
         }
+
         else if (collider.gameObject.tag == "Coin")
         {
             Destroy(collider.gameObject);
             PlayerPrefs.SetInt("coins", PlayerPrefs.GetInt("coins") + 1);
         }
+
         else if(collider.gameObject.tag == "Heal")
         {
             Destroy(collider.gameObject);
@@ -111,6 +115,22 @@ public class Player : MonoBehaviour
     public void CantJump()
     {
         canJump = false;
+    }
+
+    //Player can't get damage for 0.5 sec after getting damage
+    IEnumerator Flashing()
+    {
+        canGetDamage = false;
+        for (int i = 0; i < 5; i++)
+        {
+            sprite1.enabled = false;
+            sprite2.enabled = false;
+            yield return new WaitForSeconds(0.1f);
+            sprite1.enabled = true;
+            sprite2.enabled = true;
+            yield return new WaitForSeconds(0.1f);
+        }
+        canGetDamage = true;
     }
 }
 
