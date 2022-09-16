@@ -16,10 +16,6 @@ public class Score : MonoBehaviour
 
     private void Update()
     {
-        if (score > PlayerPrefs.GetInt("maxScore"))
-        {
-            PlayerPrefs.SetInt("maxScore", score);
-        }
         scoreText.text = score.ToString();
     }
 
@@ -29,6 +25,19 @@ public class Score : MonoBehaviour
         {
             score++;
             yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    public bool IsNewScore()
+    {
+        if (score >= PlayerPrefs.GetInt("maxScore"))
+        {
+            PlayerPrefs.SetInt("maxScore", score);
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

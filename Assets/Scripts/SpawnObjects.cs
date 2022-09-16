@@ -33,15 +33,15 @@ public class SpawnObjects : MonoBehaviour
         {
             if(Random.Range(0, 100) < 45)
             {
-                objectToSpawn = objects[0];
+                objectToSpawn = objects[0]; //Coin
             }
-            else if (Random.Range(0, 100) < 90)
+            else if (Random.Range(0, 100) < 85)
             {
-                objectToSpawn = objects[1];
+                objectToSpawn = objects[1]; //Asteroid
             }
             else
             {
-                objectToSpawn = objects[2];
+                objectToSpawn = objects[2]; //Heal
             }
 
             Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);

@@ -5,11 +5,29 @@ using UnityEngine;
 public class GameOverPanel : MonoBehaviour
 {
     public GameObject gameOverPanel;
+    Score score;
 
-   public void GameOver()
+    private void Awake()
+    {
+        score = FindObjectOfType<Score>();
+    }
+
+    public void GameOver()
     {
         gameOverPanel.SetActive(true);
+        score.scoreText.fontSize = 48;
         Time.timeScale = 0;
+
+        if (score.IsNewScore())
+        {
+            score.scoreText.text = "New best: " + score.score + "!";
+        }
+        else
+        {
+            score.scoreText.text = "Your score: " + score.score;
+        }
+
+        
     }
 
 

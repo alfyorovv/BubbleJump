@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        //PlayerPrefs.DeleteAll();
         sprite1.sprite = skins[PlayerPrefs.GetInt("currentSkin")];
         sprite2.sprite = skins[PlayerPrefs.GetInt("currentSkin") + 1];
     }
