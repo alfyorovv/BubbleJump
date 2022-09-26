@@ -6,10 +6,12 @@ public class GameOverPanel : MonoBehaviour
 {
     public GameObject gameOverPanel;
     Score score;
+    InterstitialAds ad;
 
     private void Awake()
     {
         score = FindObjectOfType<Score>();
+        ad = FindObjectOfType<InterstitialAds>();
     }
 
     public void GameOver()
@@ -27,7 +29,11 @@ public class GameOverPanel : MonoBehaviour
             score.scoreText.text = "Your score: " + score.score;
         }
 
-        
+        if (PlayerPrefs.GetInt("tempAds") > 3)
+        {
+            PlayerPrefs.SetInt("tempAds", 0);
+            ad.ShowAd();
+        }
     }
 
 

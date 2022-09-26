@@ -65,6 +65,9 @@ public class Player : MonoBehaviour
         if(hp<=0)
         {
             gameOverPanel.GameOver();
+            PlayerPrefs.SetInt("tempAds", PlayerPrefs.GetInt("tempAds") + 1);
+            Debug.Log(PlayerPrefs.GetInt("tempAds"));
+            hp = 1;
         }
 
         hpText.text = "x" + hp;
@@ -91,7 +94,7 @@ public class Player : MonoBehaviour
         if (collider.gameObject.tag == "Obstacle" && canGetDamage)
         {
             hp -= 1;
-            StartCoroutine("Flashing");
+            StartCoroutine("Flashing", 5);
         }
 
         else if (collider.gameObject.tag == "Coin")
@@ -121,11 +124,11 @@ public class Player : MonoBehaviour
         canJump = false;
     }
 
-    //Player can't get damage for 0.5 sec after getting damage
-    IEnumerator Flashing()
+    //Player can't get damage after getting damage
+    IEnumerator Flashing(int flashes)
     {
         canGetDamage = false;
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < flashes; i++)
         {
             sprite1.enabled = false;
             sprite2.enabled = false;
