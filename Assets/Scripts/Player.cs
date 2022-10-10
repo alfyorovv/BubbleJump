@@ -7,23 +7,21 @@ public class Player : MonoBehaviour
 {
     bool isWalled = true;
     bool canJump = true;
-    public bool isLeftWall = true;
     bool canGetDamage = true;
+    public bool isLeftWall = true;
 
+    [SerializeField] float speed = 12;
     float direction = 1;
-    float speed = 12;
     public int hp;
 
     Rigidbody2D rb;
-    public GameObject child1, child2;
+    public GameObject child1, child2, coinParticles, heartParticles, shield, shieldParticles;
     public SpriteRenderer sprite1, sprite2;
     GameOverPanel gameOverPanel;
     public Animator playerAnimator;
     AnimationsController animController;
     public Text hpText;
     AudioManager audioManager;
-    public GameObject coinParticles, heartParticles;
-
     public Sprite[] skins;
 
     void Awake()
@@ -110,7 +108,14 @@ public class Player : MonoBehaviour
             Destroy(collider.gameObject);
             hp += 1;
         }
-        
+
+        else if (collider.gameObject.tag == "Shield")
+        {
+            Instantiate(shield, gameObject.transform.position, Quaternion.identity, gameObject.transform);
+            Destroy(collider.gameObject);
+            StartCoroutine("Shield");
+        }
+
     }
 
     //Functions to check if mouse on pause button
@@ -138,6 +143,15 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         canGetDamage = true;
+    }
+
+    IEnumerator Shield()
+    {
+        canGetDamage = false;
+        yield return new WaitForSeconds(10f);
+        canGetDamage = true;
+        Destroy(GameObject.Find("Shield(Clone)"));
+        Instantiate(shieldParticles, gameObject.transform.position, Quaternion.identity);
     }
 }
 

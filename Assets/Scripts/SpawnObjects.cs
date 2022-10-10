@@ -27,21 +27,26 @@ public class SpawnObjects : MonoBehaviour
     {
         StartCoroutine(SpawnRandomObjects());
     }
+
     IEnumerator SpawnRandomObjects()
     {
         while (Time.timeScale > 0)
         {
             if(Random.Range(0, 100) < 45)
             {
-                objectToSpawn = objects[0]; //Coin
+                objectToSpawn = objects[3]; //Coin
             }
-            else if (Random.Range(0, 100) < 85)
+            else if (Random.Range(0, 100) < 80)
             {
-                objectToSpawn = objects[1]; //Asteroid
+                objectToSpawn = objects[3]; //Asteroid
+            }
+            else if (Random.Range(0, 100) < 90)
+            {
+                objectToSpawn = objects[3]; //Heal
             }
             else
             {
-                objectToSpawn = objects[2]; //Heal
+                objectToSpawn = objects[3]; //Shield
             }
 
             Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);

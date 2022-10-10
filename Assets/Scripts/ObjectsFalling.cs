@@ -14,7 +14,7 @@ public class ObjectsFalling : MonoBehaviour
         {
             speed = Random.Range(4f, 6f);
         }
-        else if(gameObject.tag == "Coin" || gameObject.tag == "Heal")
+        else if(gameObject.tag == "Coin" || gameObject.tag == "Heal" || gameObject.tag == "Shield")
         {
             speed = Random.Range(1.5f, 2.5f);
         }

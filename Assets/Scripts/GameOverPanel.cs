@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameOverPanel : MonoBehaviour
 {
     public GameObject gameOverPanel;
+    PausePanel pausePanel;
     Score score;
     InterstitialAds ad;
 
@@ -12,13 +13,14 @@ public class GameOverPanel : MonoBehaviour
     {
         score = FindObjectOfType<Score>();
         ad = FindObjectOfType<InterstitialAds>();
+        pausePanel = FindObjectOfType<PausePanel>();
     }
 
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
+        pausePanel.pauseButton.SetActive(false);
         score.scoreText.fontSize = 48;
-        Time.timeScale = 0;
 
         if (score.IsNewScore())
         {
@@ -34,6 +36,7 @@ public class GameOverPanel : MonoBehaviour
             PlayerPrefs.SetInt("tempAds", 0);
             ad.ShowAd();
         }
+        Time.timeScale = 0;
     }
 
 

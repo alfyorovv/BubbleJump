@@ -11,6 +11,7 @@ TagManager:
   - Obstacle
   - Coin
   - Heal
+  - Shield
   layers:
   - Default
   - TransparentFX

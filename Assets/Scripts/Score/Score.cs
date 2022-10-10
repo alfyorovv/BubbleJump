@@ -32,11 +32,13 @@ public class Score : MonoBehaviour
     {
         if (score >= PlayerPrefs.GetInt("maxScore"))
         {
+            Debug.Log("New score: " + score);
             PlayerPrefs.SetInt("maxScore", score);
             return true;
         }
         else
         {
+            Debug.Log("Your score: " + score);
             return false;
         }
     }
