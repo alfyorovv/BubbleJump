@@ -288,11 +288,11 @@ RectTransform:
   m_Father: {fileID: 1925441409}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 392.45, y: 973}
-  m_SizeDelta: {x: 181.524, y: 130.542}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -50, y: -50}
+  m_SizeDelta: {x: 181.52399, y: 130.54199}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &78421271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,7 +634,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.6698113, g: 0.5632603, b: 0.46381274, a: 0}
+  m_BackGroundColor: {r: 0.754717, g: 0.5601186, b: 0.44428623, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -775,7 +775,7 @@ GameObject:
   - component: {fileID: 305201579}
   - component: {fileID: 305201578}
   m_Layer: 5
-  m_Name: CoinIcon
+  m_Name: Coins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -791,15 +791,16 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1249158630}
-  m_RootOrder: 0
+  m_Children:
+  - {fileID: 1249158630}
+  m_Father: {fileID: 1925441409}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -163.29996, y: 12.299835}
-  m_SizeDelta: {x: 103.611, y: 91.876}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -350}
+  m_SizeDelta: {x: 103.61099, y: 91.87598}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &305201578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -873,7 +874,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.569, y: -609.27}
+  m_AnchoredPosition: {x: 4.569, y: -532}
   m_SizeDelta: {x: 519.93, y: 251.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &330147714
@@ -1209,11 +1210,11 @@ RectTransform:
   m_Father: {fileID: 1925441409}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -199.22, y: 973}
-  m_SizeDelta: {x: 573.67, y: 72.304}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -160}
+  m_SizeDelta: {x: 573.67, y: 72.303955}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &597778115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1517,11 +1518,11 @@ RectTransform:
   m_Father: {fileID: 1925441409}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -404, y: -977}
-  m_SizeDelta: {x: 185.576, y: 147.933}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 50, y: 122}
+  m_SizeDelta: {x: 185.57599, y: 147.93298}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &996429683
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,17 +1826,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249158627}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 305201577}
-  m_Father: {fileID: 1925441409}
-  m_RootOrder: 3
+  m_Children: []
+  m_Father: {fileID: 305201577}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -276, y: 763}
+  m_AnchoredPosition: {x: 163.29993, y: -12.299805}
   m_SizeDelta: {x: 201.522, y: 89.575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1341287370
@@ -2279,7 +2279,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1080, y: 1920}
+  m_ReferenceResolution: {x: 1080, y: 2400}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2322,7 +2322,7 @@ RectTransform:
   - {fileID: 597778114}
   - {fileID: 78421270}
   - {fileID: 330147713}
-  - {fileID: 1249158630}
+  - {fileID: 305201577}
   - {fileID: 96898397}
   - {fileID: 1948712349}
   - {fileID: 35994672}
