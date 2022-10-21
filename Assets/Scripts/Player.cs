@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     bool isWalled = true;
     bool canJump = true;
     bool canGetDamage = true;
+    bool isShielded = false;
     public bool isLeftWall = true;
 
     [SerializeField] float speed = 12;
@@ -69,7 +70,14 @@ public class Player : MonoBehaviour
         }
 
         hpText.text = "x" + hp;
+
+        if (isShielded)
+        {
+            canGetDamage = false;
+        }
     }
+
+ 
 
     void OnCollisionStay2D(Collision2D collision)
     {
@@ -109,7 +117,7 @@ public class Player : MonoBehaviour
             hp += 1;
         }
 
-        else if (collider.gameObject.tag == "Shield")
+        else if (collider.gameObject.tag == "Shield" && !isShielded)
         {
             Instantiate(shield, gameObject.transform.position, Quaternion.identity, gameObject.transform);
             Destroy(collider.gameObject);
@@ -148,10 +156,12 @@ public class Player : MonoBehaviour
     IEnumerator Shield()
     {
         canGetDamage = false;
+        isShielded = true;
         yield return new WaitForSeconds(10f);
         canGetDamage = true;
         Destroy(GameObject.Find("Shield(Clone)"));
         Instantiate(shieldParticles, gameObject.transform.position, Quaternion.identity);
+        isShielded = false;
     }
 }
 

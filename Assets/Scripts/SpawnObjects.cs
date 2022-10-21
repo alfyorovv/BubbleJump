@@ -34,15 +34,15 @@ public class SpawnObjects : MonoBehaviour
         {
             if(Random.Range(0, 100) < 45)
             {
-                objectToSpawn = objects[3]; //Coin
+                objectToSpawn = objects[0]; //Coin
             }
             else if (Random.Range(0, 100) < 80)
             {
-                objectToSpawn = objects[3]; //Asteroid
+                objectToSpawn = objects[1]; //Asteroid
             }
             else if (Random.Range(0, 100) < 90)
             {
-                objectToSpawn = objects[3]; //Heal
+                objectToSpawn = objects[2]; //Heal
             }
             else
             {
