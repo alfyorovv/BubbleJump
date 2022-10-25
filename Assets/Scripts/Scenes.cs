@@ -5,14 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class Scenes : MonoBehaviour
 {
+
+    LoadingScreen loadingScreen;
+
     void Awake()
     {
         Time.timeScale = 1;
+        loadingScreen = FindObjectOfType<LoadingScreen>();
     }
 
-    public void LoadGame()
+    public void RestartGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void StartGame()
+    {
+        StartCoroutine(loadingScreen.LoadSceneAsync());
     }
 
     public void LoadMenu()
