@@ -2848,6 +2848,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6651305517381791486, guid: 644a7232de72e5642a32a1ad5e9d2c58, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6651305517381791487, guid: 644a7232de72e5642a32a1ad5e9d2c58, type: 3}
       propertyPath: m_RootOrder
       value: 2
