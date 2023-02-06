@@ -1,19 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
+    private bool soundEnabled;
     public AudioSource audioSource;
-    bool soundEnabled;
     public Sprite sprite1, sprite2;
     public Button soundButton;
 
-    public void Awake()
+    private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+    }
 
+    private void Start()
+    {
         if (AudioListener.volume == 1)
             soundEnabled = true;
         else

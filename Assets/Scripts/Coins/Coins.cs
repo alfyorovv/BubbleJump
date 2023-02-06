@@ -8,7 +8,7 @@ public class Coins : MonoBehaviour
 {
     public Text coinsText;
 
-    void FixedUpdate()
+    private void Update()
     {
         coinsText.text = "x" + PlayerPrefs.GetInt("coins");
     }

@@ -1,20 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectsFalling : MonoBehaviour
 {
-    Rigidbody2D rb;
-    float speed;
-    void Start()
+    private Rigidbody2D rb;
+    private float speed;
+
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
 
+    private void Start()
+    {
         if (gameObject.tag == "Obstacle")
         {
             speed = Random.Range(4f, 6f);
         }
-        else if(gameObject.tag == "Coin" || gameObject.tag == "Heal" || gameObject.tag == "Shield")
+        else if (gameObject.tag == "Coin" || gameObject.tag == "Heal" || gameObject.tag == "Shield")
         {
             speed = Random.Range(1.5f, 2.5f);
         }

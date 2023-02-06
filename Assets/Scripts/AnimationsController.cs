@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationsController : MonoBehaviour
 {
-    Player player;
-    void Start()
+    private Player player;
+
+    private void Awake()
     {
         player = FindObjectOfType<Player>();
     }
@@ -14,7 +13,8 @@ public class AnimationsController : MonoBehaviour
     {
         player.playerAnimator.SetBool("isLeftWall", player.isLeftWall);
     }
-    public void setJumpTrigger()
+
+    public void SetJumpTrigger()
     {
         player.playerAnimator.SetTrigger("jump");
     }

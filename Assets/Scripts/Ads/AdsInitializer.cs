@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
@@ -8,7 +6,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     [SerializeField] bool testMode = false;
     string gameID = "4934336";
 
-    void Awake()
+    private void Awake()
     {
         InitializeAds();
     }

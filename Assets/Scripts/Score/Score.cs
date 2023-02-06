@@ -8,9 +8,13 @@ public class Score : MonoBehaviour
     public int score;
     public Text scoreText;
 
-    void Start()
+    private void Awake()
     {
         score = 0;
+    }
+
+    private void Start()
+    {
         StartCoroutine(AddScore());
     }
 

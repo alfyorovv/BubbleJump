@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour
 {
+    private Vector2 spawnPosition;
+    private int rand;
+
     public GameObject spawnPoint;
     public GameObject[] walls;
 
-    Vector2 spawnPosition;
-    int rand;
+    private void Awake()
+    {
+        spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
+    }
 
     private void Start()
     {
-        spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
         spawnPosition = spawnPoint.transform.position;
     }
 

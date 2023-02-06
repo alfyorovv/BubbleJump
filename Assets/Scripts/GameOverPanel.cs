@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameOverPanel : MonoBehaviour
 {
+    private PausePanel pausePanel;
+    private Score score;
+    private InterstitialAds ad;
+
     public GameObject gameOverPanel;
-    PausePanel pausePanel;
-    Score score;
-    InterstitialAds ad;
 
     private void Awake()
     {

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
@@ -8,12 +6,12 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
 {
     string adID = "Interstitial_Android";
 
-    void Awake()
+    private void Awake()
     {
         LoadAd();
     }
 
-    void LoadAd()
+    private void LoadAd()
     {
         Debug.Log("Loading ad: " + adID);
         Advertisement.Load(adID, this);
@@ -24,6 +22,7 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
         Debug.Log("Showing ad: " + adID);
         Advertisement.Show(adID, this);
     }
+
     public void OnUnityAdsAdLoaded(string placementId)
     {
         Debug.Log("Ad loaded successfully: " + adID);

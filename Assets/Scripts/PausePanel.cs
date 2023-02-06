@@ -1,23 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PausePanel : MonoBehaviour
 {
+    private Player player;
+
     public GameObject pausePanel;
     public GameObject pauseButton;
 
-    Player player;
-    void Start()
+    private void Awake()
     {
         player = FindObjectOfType<Player>();
     }
 
     public void Pause()
     {
-            pausePanel.SetActive(true);
-            pauseButton.SetActive(false);
-            Time.timeScale = 0;
+        pausePanel.SetActive(true);
+        pauseButton.SetActive(false);
+        Time.timeScale = 0;
     }
 
     public void Resume()
@@ -25,7 +24,7 @@ public class PausePanel : MonoBehaviour
         pausePanel.SetActive(false);
         pauseButton.SetActive(true);
         Time.timeScale = 1;
-        player.CanJump();
+        player.SetCanJump(true);
     }
 
 }

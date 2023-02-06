@@ -1,72 +1,61 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    bool isWalled = true;
-    bool canJump = true;
-    bool canGetDamage = true;
-    bool isShielded = false;
-    public bool isLeftWall = true;
+    [SerializeField] private float speed = 12; 
+    private bool isWalled = true;
+    private bool canJump = true;
+    private bool canGetDamage = true;
+    private bool isShielded = false;
+    private float direction = 1;
 
-    [SerializeField] float speed = 12;
-    float direction = 1;
+    public bool isLeftWall = true;
     public int hp;
 
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
+    private GameOverPanel gameOverPanel;
+    private AnimationsController animController;
+    private AudioManager audioManager;
+
     public GameObject child1, child2, coinParticles, heartParticles, shield, shieldParticles;
     public SpriteRenderer sprite1, sprite2;
-    GameOverPanel gameOverPanel;
     public Animator playerAnimator;
-    AnimationsController animController;
     public Text hpText;
-    AudioManager audioManager;
     public Sprite[] skins;
 
-    void Awake()
+    private void Awake()
     {
         animController = FindObjectOfType<AnimationsController>();
-        playerAnimator = gameObject.GetComponent<Animator>();
         gameOverPanel = FindObjectOfType<GameOverPanel>();
+        audioManager = FindObjectOfType<AudioManager>();
+
         rb = GetComponent<Rigidbody2D>();
         sprite1 = child1.GetComponent<SpriteRenderer>();
         sprite2= child2.GetComponent<SpriteRenderer>();
-        audioManager = FindObjectOfType<AudioManager>();
+        playerAnimator = gameObject.GetComponent<Animator>();
+
         hp = 3;
     }
 
-    void Start()
+    private void Start()
     {
-        //PlayerPrefs.DeleteAll();
         sprite1.sprite = skins[PlayerPrefs.GetInt("currentSkin")];
         sprite2.sprite = skins[PlayerPrefs.GetInt("currentSkin") + 1];
     }
 
-    void Update()
+    private void Update()
     {
 
-        Vector2 force = new Vector2(speed*direction, 0); //Player force and direction
-
-        //Player movement
         if (Input.GetMouseButtonDown(0) && isWalled && canJump)
         {
-            animController.setJumpTrigger();
-            isLeftWall = !isLeftWall;
-            rb.AddForce(force, ForceMode2D.Impulse);
-            direction *= -1;
-            audioManager.audioSource.Play();
-
+            Jump();
         }
 
-        //Game over
-        if(hp<=0)
+        if (hp <= 0)
         {
-            gameOverPanel.GameOver();
-            PlayerPrefs.SetInt("tempAds", PlayerPrefs.GetInt("tempAds") + 1);
-            Debug.Log(PlayerPrefs.GetInt("tempAds"));
-            hp = 1;
+            GameOver();
         }
 
         hpText.text = "x" + hp;
@@ -77,9 +66,25 @@ public class Player : MonoBehaviour
         }
     }
 
- 
+    private void Jump()
+    {
+        Vector2 force = new Vector2(speed * direction, 0); //Player force and direction
 
-    void OnCollisionStay2D(Collision2D collision)
+        animController.SetJumpTrigger();
+        isLeftWall = !isLeftWall;
+        rb.AddForce(force, ForceMode2D.Impulse);
+        direction *= -1;
+        audioManager.audioSource.Play();
+    }
+
+    private void GameOver()
+    {
+        gameOverPanel.GameOver();
+        PlayerPrefs.SetInt("tempAds", PlayerPrefs.GetInt("tempAds") + 1);
+        hp = 1;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Wall")
         {
@@ -87,7 +92,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Wall")
         {
@@ -126,19 +131,14 @@ public class Player : MonoBehaviour
 
     }
 
-    //Functions to check if mouse on pause button
-    public void CanJump()
+    //Function to check if pointer on pause button
+    public void SetCanJump(bool state)
     {
-        canJump = true;
-    }
-
-    public void CantJump()
-    {
-        canJump = false;
+        canJump = state;
     }
 
     //Player can't get damage after getting damage
-    IEnumerator Flashing(int flashes)
+    private IEnumerator Flashing(int flashes)
     {
         canGetDamage = false;
         for (int i = 0; i < flashes; i++)

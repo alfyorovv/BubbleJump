@@ -1,29 +1,23 @@
- using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
 
 public class RewardedAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
-    string adID = "Rewarded_Android";
-    [SerializeField] GameObject adButtonObj;
-    Button adButton;
-    [SerializeField] GameObject rewardEarnedText;
-    //public GameObject countDown;
-    //Text countdownText;
+    private string adID = "Rewarded_Android";
+    [SerializeField] private GameObject adButtonObj;
+    [SerializeField] private GameObject rewardEarnedText;
+    private Button adButton;
 
-    void Awake()
+    private void Awake()
     {
         adButton = adButtonObj.GetComponent<Button>();
         adButton.interactable = false;
-        //countdownText = countDown.GetComponent<Text>();
     }
 
-    void Start()
+    private void Start()
     {
         LoadAd();
-        //countDown.SetActive(false);
     }
 
     public void LoadAd()
@@ -31,6 +25,7 @@ public class RewardedAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
         Debug.Log("Loading Ad:" + adID);
         Advertisement.Load(adID, this);
     }
+
     public void ShowAd()
     {
         Debug.Log("Showing Ad:" + adID);
@@ -76,23 +71,6 @@ public class RewardedAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
             PlayerPrefs.SetInt("coins", PlayerPrefs.GetInt("coins") + 5);
             adButtonObj.SetActive(false);
             rewardEarnedText.SetActive(true);
-            //gameOverPanel.SetActive(false);
-            //StartCoroutine("CountDown");
         }
     }
-
-    //IEnumerator CountDown()
-    //{
-    //    countDown.SetActive(true);
-    //    Time.timeScale = 1;
-    //    countdownText.text = "3";
-    //    yield return new WaitForSeconds(1);
-    //    countdownText.text = "2";
-    //    yield return new WaitForSeconds(1);
-    //    countdownText.text = "1";
-    //    yield return new WaitForSeconds(1);
-    //    countDown.SetActive(false);
-    //    yield return new WaitForSeconds(0);
-    //}
-
 }
